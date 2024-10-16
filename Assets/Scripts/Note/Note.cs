@@ -10,23 +10,26 @@ public class Note : MonoBehaviour
     protected float noteSpeed = 5f;
 
     [SerializeField]
-    bool isVisible
+    public bool isVisible
     {
         get => visible;
         set
         {
             visible = value;
-            if (!visible) { animator.Play("Invisible"); }
+            //if (!visible) { animator.Play("Invisible"); }
         }
     }
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     private void Update ()
     {
         transform.Translate(Vector2.down * noteSpeed * Time.deltaTime);
     }
+
+    public bool Played { get; private set; }
+    public int ID { get; set; }
 }
